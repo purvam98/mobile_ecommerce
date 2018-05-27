@@ -6,13 +6,12 @@ USE commerce_db;
 CREATE TABLE users
 (
 	userID int NOT NULL AUTO_INCREMENT,
-	username varchar(255) NOT NULL,
 	first_name varchar(255),
 	last_name varchar(255),
 	user_email varchar(255) NOT NULL,
 	user_phone varchar(255),
 	user_address text NOT NULL,
-	user_zipcode varchar(255) NOT NULL,
+	user_zipcode int(5) NOT NULL,
 	PRIMARY KEY (userID)
 );
 
@@ -43,7 +42,6 @@ CREATE TABLE order_details
 	order_timestamp TIMESTAMP NOT NULL,
 	delivery_timestamp TIMESTAMP,
 	payment_type varchar(255),
-	FOREIGN KEY (productID) REFERENCES product_details(productID), 
 	FOREIGN KEY (userID) REFERENCES users(UserID),
 	PRIMARY KEY (orderID)
 );
@@ -51,9 +49,9 @@ CREATE TABLE order_details
 CREATE TABLE order_product_details
 (
 	opID int NOT NULL AUTO_INCREMENT,
-	quantity int NOT NULL,
 	FOREIGN KEY (orderID) REFERENCES order_details(orderID),
 	FOREIGN KEY (categoryID) REFERENCES category(categoryID),
 	FOREIGN KEY (productID) REFERENCES product_details(productID),
+	quantity int(10) NOT NULL,
 	PRIMARY KEY (opID)
 );
