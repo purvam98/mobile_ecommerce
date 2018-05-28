@@ -52,6 +52,7 @@ CREATE TABLE order_product_details
 	FOREIGN KEY (orderID) REFERENCES order_details(orderID),
 	FOREIGN KEY (categoryID) REFERENCES category(categoryID),
 	FOREIGN KEY (productID) REFERENCES product_details(productID),
+	product_name varchar(255),
 	quantity int(10) NOT NULL,
 	PRIMARY KEY (opID)
 );
