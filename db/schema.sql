@@ -32,6 +32,7 @@ CREATE TABLE product_details
 	product_memory varchar(255),
 	product_specs text,
 	product_timestamp TIMESTAMP NOT NULL,
+	categoryID int NOT NULL,
 	FOREIGN KEY (categoryID) REFERENCES category(categoryID),
 	PRIMARY KEY (productID)
 );
@@ -42,6 +43,7 @@ CREATE TABLE order_details
 	order_timestamp TIMESTAMP NOT NULL,
 	delivery_timestamp TIMESTAMP,
 	payment_type varchar(255),
+	userID int
 	FOREIGN KEY (userID) REFERENCES users(UserID),
 	PRIMARY KEY (orderID)
 );
@@ -49,8 +51,11 @@ CREATE TABLE order_details
 CREATE TABLE order_product_details
 (
 	opID int NOT NULL AUTO_INCREMENT,
+	orderID int NOT NULL,
 	FOREIGN KEY (orderID) REFERENCES order_details(orderID),
+	categoryID int NOT NULL,
 	FOREIGN KEY (categoryID) REFERENCES category(categoryID),
+	productID int NOT NULL,
 	FOREIGN KEY (productID) REFERENCES product_details(productID),
 	product_name varchar(255),
 	quantity int(10) NOT NULL,
