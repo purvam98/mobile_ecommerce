@@ -26,7 +26,7 @@ CREATE TABLE category
 CREATE TABLE product_details
 (
 	productID int NOT NULL AUTO_INCREMENT,
-	categoryID int,
+	categoryID int NOT NULL,
 	product_name varchar(255) NOT NULL,
 	product_image text,
 	product_price DECIMAL(6,2) NOT NULL,
@@ -41,8 +41,8 @@ CREATE TABLE product_details
 CREATE TABLE order_details
 (
 	orderID int NOT NULL AUTO_INCREMENT,
-	userID int,
-	productID int,
+	userID int NOT NULL,
+	productID int NOT NULL,
 	order_timestamp TIMESTAMP NOT NULL,
 	delivery_timestamp TIMESTAMP,
 	payment_type varchar(255),
@@ -54,9 +54,9 @@ CREATE TABLE order_details
 CREATE TABLE order_product_details
 (
 	opID int NOT NULL AUTO_INCREMENT,
-	orderID int,
-	categoryID int,
-	productID int,
+	orderID int NOT NULL,
+	categoryID int NOT NULL,
+	productID int NOT NULL,
 	quantity int NOT NULL,
 	FOREIGN KEY (orderID) REFERENCES order_details(orderID),
 	FOREIGN KEY (categoryID) REFERENCES category(categoryID),
