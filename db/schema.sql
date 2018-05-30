@@ -42,11 +42,9 @@ CREATE TABLE order_details
 (
 	orderID int NOT NULL AUTO_INCREMENT,
 	userID int NOT NULL,
-	productID int NOT NULL,
 	order_timestamp TIMESTAMP NOT NULL,
 	delivery_timestamp TIMESTAMP,
 	payment_type varchar(255),
-	FOREIGN KEY (productID) REFERENCES product_details(productID), 
 	FOREIGN KEY (userID) REFERENCES users(UserID),
 	PRIMARY KEY (orderID)
 );

@@ -8,7 +8,6 @@ const connection = require("../config/connection.js");
 // ["?", "?", "?"].toString() => "?,?,?";
 function printQuestionMarks(num) {
   // let arr = [];
-
   // for (let i = 0; i < num; i++) {
   //   arr.push("?");
   // }
@@ -61,8 +60,7 @@ let orm = {
   },
   // An example of objColVals would be {name: panther, sleepy: true}
   update: function(table, objColVals, condition, cb) {
-    var queryString = "UPDATE " + table;
-
+    let queryString = "UPDATE " + table;
     queryString += " SET ";
     queryString += objToSql(objColVals);
     queryString += " WHERE ";
@@ -72,23 +70,22 @@ let orm = {
       if (err) {
         throw err;
       }
-
-      cb(result);
-    });
-  },
-  delete: function(table, condition, cb) {
-    var queryString = "DELETE FROM " + table;
-    queryString += " WHERE ";
-    queryString += condition;
-
-    connection.query(queryString, function(err, result) {
-      if (err) {
-        throw err;
-      }
-
       cb(result);
     });
   }
+  // delete: function(table, condition, cb) {
+  //   var queryString = "DELETE FROM " + table;
+  //   queryString += " WHERE ";
+  //   queryString += condition;
+
+  //   connection.query(queryString, function(err, result) {
+  //     if (err) {
+  //       throw err;
+  //     }
+
+  //     cb(result);
+  //   });
+  // }
 };
 
 module.exports = orm;

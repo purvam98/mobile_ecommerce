@@ -1,29 +1,44 @@
 const express = require("express");
 const router = express.Router();
 let mobile = require("../models/mobile_commerce.js");
+
 router.get("/", function(req, res) {
-    res.redirect('/burgers');
+    res.redirect('/mobile');
 });
 
-
-router.get('/burgers', function (req, res) {
+router.get('/mobile', function (req, res) {
 	mobile.all(function (data) {
-		var hbsObject = { burgers: data };
+		let hbsObject = { burgers: data };
 		res.render('index', hbsObject);
 	});
 });
 
-router.post("/burgers/", function(req, res) {
-  mobile.create([
-    "burger_name", "devoured"
+router.post("/mobile/users", function(req, res) {
+  mobile.create(users[
+    "username", "first_name", "last_name", "user_email", "user_phone", "user_address", "user_zipcode"
   ], [
-    req.body.burger_name, req.body.devoured
+    req.body.username, req.body.first_name, req.body.last_name, req.body.user_email, req.body.user_phone, req.body.user_address, req.body.user_zipcode
   ], function(result) {
-    res.redirect('/burgers');
+    res.redirect('/mobile');
+  });
+});
+// function Person(first, last, age, eye) {
+//   this.firstName = first;
+//   this.lastName = last;
+//   this.age = age;
+//   this.eyeColor = eye;
+// }
+router.post("/mobile/order", function(req, res) {
+  mobile.create([
+    "userID", "productID", "order_timestamp", "payment_type"
+  ], [
+    req.body.userID, req.body.productID, req.body.order_timestamp, req.body.payment_type
+  ], function(result) {
+    res.redirect('/mobile');
   });
 });
 
-router.post("/burgers/:id", function(req, res) {
+router.post("/mobile/users/:id", function(req, res) {
   var condition = "id = " + req.params.id;
   mobile.update({
     devoured: req.body.devoured
@@ -31,7 +46,7 @@ router.post("/burgers/:id", function(req, res) {
     if (result.changedRows == 0) {
       return res.status(404).end();
     } else {
-        res.redirect('/burgers');
+        res.redirect('/mobile');
     }
   });
 });
