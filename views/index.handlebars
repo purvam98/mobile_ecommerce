@@ -1,53 +1,156 @@
-  <h1 style="text-align: center;">Hot Juicy Burgs!</h1>
-  <div>
-<div class="row">
-  <div class="panel col-lg-5">
-    <h6>Burgs Not Eaten</h6>
-
-<ul style="margin: auto;">
-  {{#each burgers}}
-    {{#unless this.devoured}}
-      <li>
-        {{this.burger_name}}
-        <div class="btn-group ">
-        <form action="/burgers/{{this.id}}?_method=PUT" method="POST">
-          <input type="hidden" name="devoured" value="1">
-          <button class="btn btn-primary btn-block" style="padding: 10px;" type="submit">Eat!</button>
-        </form>
-        <form action="/burgers/delete/{{this.id}}?_method=DELETE" method="POST">
-        <button class="btn btn-primary btn-block" type="submit">Delete</button>
-        </form>
-        </div>
-      </li>
-    {{/unless}}
-  {{/each}}
-</ul>
-</div>
-  <div class="panel col-lg-5 devoured">
-<h6>Devoured Burgs</h6>
-
-
-
-<ul>
-  {{#each burgers}}
-    {{#if this.devoured}}
-      <li>
-        {{this.burger_name}}
-      </li>
-    {{/if}}
-  {{/each}}
-</ul>
-</div>
-</div>
-</div>
-
-
-<h2>Add a Burg</h2>
-<form action="/burgers/" method="POST">
-
-  <div class="form-group">
-    <label for="burg">Burg Name:</label>
-    <input type="text" id="burg" name="burger_name">
+<div class="wrap">
+  <div class="header">
+    <div class="search-bar">
+      <!-- <form action="need to be filled for the route" method="GET"> -->
+      <input type="text">
+      <input type="submit" value="Search" style="color:white" />
+      </form>
+    </div>
+    <div class="clear"> </div>
+    <div class="header-top-nav">
+      <ul>
+        <li>
+          <a href="public/register.html">Register</a>
+        </li>
+        <li>
+          <a href="public/register.html">Login</a>
+        </li>
+        <!-- <li><a href="#">Delivery</a></li> -->
+        <!-- <li><a href="#">Checkout</a></li> -->
+        <li>
+          <a href="public/register.html">My account</a>
+        </li>
+        <!-- <li><a href="#"><span>shopping cart&nbsp;&nbsp;: </span></a><label> &nbsp;noitems</label></li> -->
+      </ul>
+    </div>
+    <div class="clear"> </div>
   </div>
-  <button type="submit">Add Burg</button>
-</form>
+</div>
+<div class="clear"> </div>
+<div class="top-header">
+  <div class="wrap">
+
+    <div class="top-nav">
+      <ul>
+        <li>
+          <a href="public/index.html">Home</a>
+        </li>
+        <!-- <li><a href="about.html">About</a></li> -->
+        <!-- <li><a href="store.html">Store</a></li> -->
+        <!-- <li><a href="store.html">Featured</a></li> -->
+        <!-- <li><a href="blog.html">Blog</a></li> -->
+        <li>
+          <a href="public/contact.html">Contact</a>
+        </li>
+      </ul>
+    </div>
+    <div class="clear"> </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="image-slider">
+    <!-- Slideshow 1 -->
+    <ul class="rslides" id="slider1">
+      <li>
+        <img src="/assets/img/banner.jpg" alt="S9">
+      </li>
+      <li>
+        <img src="/assets/img/iphonebanner.png" alt="iPhoneX">
+      </li>
+      <li>
+        <img src="/assets/img/iphone8banner.jpg" alt="iphone8">
+      </li>
+    </ul>
+    <!-- Slideshow 2 -->
+  </div>
+  <!--End-image-slider---->
+</div>
+<div class="clear"> </div>
+
+<div class="content-grids">
+  <h1 align="center">
+    <span class="label label-primary" style="background-color: #94CB32">Products</span>
+    </h3>
+    <div class="section group">
+      {{#each mobiles}}
+      <div class="grid_1_of_4 images_1_of_4 products-info">
+        <img src="/assets/img/{{this.product_image}}.jpg">
+        <!-- <a href="single.html">Duis aute irure dolor in reprehenderit sed do eiusmod tempor incididunt</a> -->
+      <h3>${{this.product_price}}</h3>
+      {{/each}}
+      </div>
+      
+      {{!-- <div class="grid_1_of_4 images_1_of_4 products-info">
+        <img src="public/css/images/m2.jpg">
+        <!-- <a href="single.html">Duis aute irure dolor in reprehenderit sed do eiusmod tempor incididunt</a> -->
+        <h3>$150</h3>
+
+      </div>
+      <div class="grid_1_of_4 images_1_of_4 products-info">
+        <img src="public/css/images/m7.jpg">
+        <!-- <a href="single.html">Duis aute irure dolor in reprehenderit sed do eiusmod tempor incididunt</a> -->
+        <h3>$130</h3>
+
+      </div>
+      <div class="grid_1_of_4 images_1_of_4 products-info">
+        <img src="public/css/images/m4.jpg">
+        <!-- <a href="single.html">Duis aute irure dolor in reprehenderit sed do eiusmod tempor incididunt</a> -->
+        <h3>$460</h3>
+
+      </div> --}}
+    </div>
+    <div class="section group">
+      <div class="grid_1_of_4 images_1_of_4 products-info">
+        <img src="/assets/img/m2.jpg">
+        <!-- <a href="single.html">Duis aute irure dolor in reprehenderit sed do eiusmod tempor incididunt</a> -->
+        <h3>$260</h3>
+
+      </div>
+      <div class="grid_1_of_4 images_1_of_4 products-info">
+        <img src="/assets/img/m6.jpg">
+        <!-- <a href="single.html">Duis aute irure dolor in reprehenderit sed do eiusmod tempor incididunt</a> -->
+        <h3>$100</h3>
+
+      </div>
+      <div class="grid_1_of_4 images_1_of_4 products-info">
+        <img src="/assets/img/m7.jpg">
+        <!-- <a href="single.html">Duis aute irure dolor in reprehenderit sed do eiusmod tempor incididunt</a> -->
+        <h3>$180</h3>
+
+      </div>
+      <div class="grid_1_of_4 images_1_of_4 products-info">
+        <img src="/assets/img/m1.jpg">
+        <!-- <a href="single.html">Duis aute irure dolor in reprehenderit sed do eiusmod tempor incididunt</a> -->
+        <h3>$140</h3>
+
+      </div>
+    </div>
+
+</div>
+<div class="content-sidebar">
+  <h4>Categories</h4>
+  <ul>
+    <li>
+      <a href="#">Apple</a>
+    </li>
+    <li>
+      <a href="#">HTC</a>
+    </li>
+    <li>
+      <a href="#">LG</a>
+    </li>
+    <li>
+      <a href="#">Samsung</a>
+    </li>
+  </ul>
+</div>
+<div class="clear"> </div>
+
+<div class="clear"> </div>
+<div class="wrap">
+  <div class="copy-right">
+    <p style="color: white">&copy; Mobile e-Commerce 2018</a>
+    </p>
+  </div>
+</div>
