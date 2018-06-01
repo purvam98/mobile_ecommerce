@@ -42,6 +42,16 @@ let orm = {
       cb(result);
     });
   },
+  one: function(tableInput, criteria, cb) {
+    console.log('orm')
+    let queryString = "SELECT * FROM " + tableInput + " WHERE " + criteria + ";";
+    connection.query(queryString, function(err, result) {
+      if (err) {
+        throw err;
+      }
+      cb(result);
+    });
+  },
   create: function(table, cols, vals, cb) {
      let queryString = "INSERT INTO " + table;
     queryString += " (";

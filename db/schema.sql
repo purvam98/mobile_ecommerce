@@ -7,6 +7,7 @@ CREATE TABLE users
 (
 	userID int NOT NULL AUTO_INCREMENT,
 	username varchar(255) NOT NULL,
+	password varchar(255) NOT NULL,
 	first_name varchar(255),
 	last_name varchar(255),
 	user_email varchar(255) NOT NULL,
@@ -38,7 +39,7 @@ CREATE TABLE product_details
 	PRIMARY KEY (productID)
 );
 
-CREATE TABLE order_details
+CREATE TABLE order_details 
 (
 	orderID int NOT NULL AUTO_INCREMENT,
 	userID int NOT NULL,
@@ -56,7 +57,7 @@ CREATE TABLE order_product_details
 	categoryID int NOT NULL,
 	productID int NOT NULL,
 	quantity int NOT NULL,
-	FOREIGN KEY (orderID) REFERENCES order_details(orderID),
+	FOREIGN KEY (orderID) REFERENCES order_details(orderID) ON UPDATE CASCADE,
 	FOREIGN KEY (categoryID) REFERENCES category(categoryID),
 	FOREIGN KEY (productID) REFERENCES product_details(productID),
 	PRIMARY KEY (opID)
