@@ -44,6 +44,37 @@ let orm = {
       cb(result);
     });
   },
+  selectWhere: function(tableInput, colToSearch, condition,cb) {
+    var queryString = "SELECT * FROM ?? WHERE ?? = ?";
+
+    console.log('Query: ', `SELECT * FROM ${tableInput} WHERE ${colToSearch} = ${condition}`);
+
+    connection.query(queryString, [tableInput, colToSearch, condition], function(err, result) {
+      if (err) throw err;
+      console.log(tableInput,colToSearch,condition);
+      cb(result);
+    });
+  },
+  one: function(tableInput, criteria, cb) {
+    console.log('orm')
+    let queryString = "SELECT * FROM " + tableInput + " WHERE " + criteria + ";";
+    connection.query(queryString, function(err, result) {
+      if (err) {
+        throw err;
+      }
+      cb(result);
+    });
+  },
+  selectallWhere:function(tableInput,colToSearch1,colToSearch2,colToSearch3,condition1,condition2,condition3,cb)
+  {
+    console.log('Query: ', `SELECT * FROM ${tableInput} WHERE ${colToSearch1} = ${condition1} AND ${colToSearch2} <= ${condition2} AND ${colToSearch3} <= ${condition3}`);
+    var queryString = "SELECT * FROM ?? WHERE ?? = ? AND ?? <= ? AND ?? <= ?";
+    connection.query(queryString, [tableInput,colToSearch1,condition1,colToSearch2,condition2,colToSearch3,condition3], function(err, result) {
+      if (err) throw err;
+      
+      cb(result);
+    });    
+  }
   // create: function(table, cols, vals, cb) {
   //    let queryString = "INSERT INTO " + table;
   //   queryString += " (";

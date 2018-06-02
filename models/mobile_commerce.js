@@ -7,7 +7,30 @@ let mobile = {
       console.log(res)
       cb(res);
     });
+    
   },
+  selectwhere: function(colToSearch, condition,cb)
+  {
+   orm.selectWhere("product_details",colToSearch,condition,function(res)
+  {
+    cb(res)
+  }); 
+  },
+  one: function(table, condition, cb) {
+    console.log('mobile_comm')
+    orm.one(table, condition, function(res) {
+      cb(res);
+    });
+  },
+  selectallwhere: function(colToSearch1,colToSearch2,colToSearch3,condition1,condition2,condition3,cb)
+  {
+   orm.selectallWhere("product_details",colToSearch1,colToSearch2,colToSearch3,condition1,condition2,condition3,function(res)
+  {
+    cb(res)
+  }); 
+  },  
+  
+
   // The variables cols and vals are arrays.
 //   create: function(cols, vals, cb) {
 //     orm.create("users", cols, vals, function(res) {

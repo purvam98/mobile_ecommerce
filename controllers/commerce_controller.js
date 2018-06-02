@@ -4,20 +4,54 @@ let mobile = require("../models/mobile_commerce.js");
 router.get("/", function(req, res) {
   console.log('/ route hit');
   mobile.all(function(data) {
-    console.log(data)
+    //console.log(data)
     var hbsObject = {
       mobiles: data
     };
-    
+
     res.render("index", hbsObject);
   });
 
+
+
+});
+router.get("/allmobiles/:id",function(req,res)
+{
+  var condition = req.params.id;
+mobile.selectwhere("categoryID", condition ,function(data)
+{
+  console.log(data,"here");
+ var hbsObject={
+   mobiles:data
+ }; 
+ res.render("allmobiles", hbsObject);
+});
+});
+router.get('/mobile/product/:id', function (req, res) {
+  const condition = "productID = " + req.params.id;
+  console.log('here')
+     mobile.one('product_details', condition, function (data) {
+    data[0].product_specs = data[0].product_specs.split(":");
+    let hbsObject = { mobiles: data };
+    console.log(data[0])
+    res.render('phone_details', hbsObject);
+    //res.send(hbsObject);
+     });
+ });
+ router.post('/criteria',function(req,res)
+{
+var category=req.body.category;
+var price_range=req.body.price_range;
+var memory=req.body.memory;
+mobile.selectallwhere("categoryID","product_price","product_memory",category,price_range,memory,function(data)
+{
+  var hbsObject={
+    mobiles:data
+  }; 
+  res.render("criteria_search", hbsObject);
+});
 });
 
-router.get('/api/', function(req,res){
-  console.log(req.params)
-  res.send('router for api hit')
-})
 
 
 // router.get('/mobile', function (req, res) {
@@ -31,7 +65,7 @@ router.get('/api/', function(req,res){
 //   mobile.create([
 //     "burger_name", "devoured"
 //   ], [
-//     req.body.burger_name, req.body.devoured
+//     req.bodreqy.burger_name, req.body.devoured
 //   ], function(result) {
 //     res.redirect('/burgers');
 //   });
