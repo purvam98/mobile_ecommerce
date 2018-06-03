@@ -52,6 +52,15 @@ let orm = {
       cb(result);
     });
   },
+  userlookup: function(val, cb) {
+    let queryString = "SELECT * FROM users WHERE user_email = '" + val + "';"
+    connection.query(queryString, function(err, result) {
+      if (err) {
+        throw err;
+      }
+      cb(result);
+    });
+  },
   create: function(table, cols, vals, cb) {
      let queryString = "INSERT INTO " + table;
     queryString += " (";

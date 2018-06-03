@@ -10,10 +10,10 @@
     <div class="header-top-nav">
       <ul>
         <li>
-          <a href="public/register.html">Register</a>
+          <a href="/register">Register</a>
         </li>
         <li>
-          <a href="public/register.html">Login</a>
+          <a href="/login">Login</a>
         </li>
         <li>
           <a href="public/register.html">My account</a>
@@ -27,11 +27,10 @@
 <div class="clear"> </div>
 <div class="top-header">
   <div class="wrap">
-
     <div class="top-nav">
       <ul>
         <li>
-          <a href="public/index.html">Home</a>
+          <a href="/">Home</a>
         </li>
         <!-- <li><a href="about.html">About</a></li> -->
         <!-- <li><a href="store.html">Store</a></li> -->
@@ -45,7 +44,6 @@
     <div class="clear"> </div>
   </div>
 </div>
-
 <div class="wrap">
   <div class="image-slider">
     <!-- Slideshow 1 -->
@@ -62,90 +60,72 @@
     </ul>
     <!-- Slideshow 2 -->
   </div>
-  <!--End-image-slider---->
+  <!--End-image-slider-->
 </div>
 <div class="clear"> </div>
-
-<div class="content-grids">
-  <h1 align="center">
-    <span class="label label-primary" style="background-color: #94CB32">Products</span>
-    </h3>
-    <div class="section group">
-      {{#each mobiles}}
-      <div class="grid_1_of_4 images_1_of_4 products-info">
-        <img src="/assets/img/{{this.product_image}}.jpg">
-        <!-- <a href="single.html">Duis aute irure dolor in reprehenderit sed do eiusmod tempor incididunt</a> -->
-      <h3>${{this.product_price}}</h3>
-      {{/each}}
-      </div>
+<h1 align="center">
+  <span class="label label-primary" style="background-color: #94CB32">Products</span>
+</h1>
+<div class="row">
+  <div class="col-md-2">
+    <form action="/criteria" method="POST">
+    <div class="col-md-12">
+      <h2>Search By Criteria</h2>
+    </div>
+    <div class="col-md-12">
+      <b>Category:</b>
+      <ul>
+      <li><input type="radio" name="category" value="1">&nbsp;&nbsp;Samsung</li>
+      <li><input type="radio" name="category" value="3">&nbsp;&nbsp;Htc</li>
+      <li><input type="radio" name="category" value="4">&nbsp;&nbsp;Lg</li>
+      <li><input type="radio" name="category" value="2">&nbsp;&nbsp;Apple</li>
+      </ul>
+    </div>
+    <div class="col-md-12">
+      <b>Range From $300 to $1500</b>
+      <input type="range"name="price_range" min="300" max="1500">
+    </div>
+    <div class="col-md-12">
+     <b> Memory:</b>
+      <ul>
+     <li><input type="radio" name="memory" value="16">&nbsp;&nbsp;16GB</li>
+     <li><input type="radio" name="memory" value="32">&nbsp;&nbsp;32GB</li>
+     <li><input type="radio" name="memory" value="64">&nbsp;&nbsp;64GB</li>
+    </ul>
+    </div>
+    <div class="col-md-12">
+      <button class="btn btn-default btn-lg" style="background-color:#94CB32" type="submit"><font color="white"><b>Search Phones</b></font></button>
+    </div>
+    </form>
+  </div>
+  <div class="col-md-8">
+    </br>
+    {{#each mobiles}}
+    <div class="col-md-4">
       
-      {{!-- <div class="grid_1_of_4 images_1_of_4 products-info">
-        <img src="public/css/images/m2.jpg">
-        <!-- <a href="single.html">Duis aute irure dolor in reprehenderit sed do eiusmod tempor incididunt</a> -->
-        <h3>$150</h3>
-      </div>
-      <div class="grid_1_of_4 images_1_of_4 products-info">
-        <img src="public/css/images/m7.jpg">
-        <!-- <a href="single.html">Duis aute irure dolor in reprehenderit sed do eiusmod tempor incididunt</a> -->
-        <h3>$130</h3>
-      </div>
-      <div class="grid_1_of_4 images_1_of_4 products-info">
-        <img src="public/css/images/m4.jpg">
-        <!-- <a href="single.html">Duis aute irure dolor in reprehenderit sed do eiusmod tempor incididunt</a> -->
-        <h3>$460</h3>
-      </div> --}}
+      <a href="/mobile/product/{{this.productID}}">
+      <h3>{{this.product_name}}</h3>
+      <img align="center" src="/assets/img/{{this.product_image}}.jpg" height="200" width="200">
+      <h3>${{this.product_price}}</h3></a>
+      <br>
     </div>
-    <div class="section group">
-      <div class="grid_1_of_4 images_1_of_4 products-info">
-        <img src="/assets/img/m2.jpg">
-        <!-- <a href="single.html">Duis aute irure dolor in reprehenderit sed do eiusmod tempor incididunt</a> -->
-        <h3>$260</h3>
-
-      </div>
-      <div class="grid_1_of_4 images_1_of_4 products-info">
-        <img src="/assets/img/m6.jpg">
-        <!-- <a href="single.html">Duis aute irure dolor in reprehenderit sed do eiusmod tempor incididunt</a> -->
-        <h3>$100</h3>
-
-      </div>
-      <div class="grid_1_of_4 images_1_of_4 products-info">
-        <img src="/assets/img/m7.jpg">
-        <!-- <a href="single.html">Duis aute irure dolor in reprehenderit sed do eiusmod tempor incididunt</a> -->
-        <h3>$180</h3>
-
-      </div>
-      <div class="grid_1_of_4 images_1_of_4 products-info">
-        <img src="/assets/img/m1.jpg">
-        <!-- <a href="single.html">Duis aute irure dolor in reprehenderit sed do eiusmod tempor incididunt</a> -->
-        <h3>$140</h3>
-
-      </div>
-    </div>
-
-</div>
-<div class="content-sidebar">
-  <h4>Categories</h4>
-  <ul>
-    <li>
-      <a href="#">Apple</a>
-    </li>
-    <li>
-      <a href="#">HTC</a>
-    </li>
-    <li>
-      <a href="#">LG</a>
-    </li>
-    <li>
-      <a href="#">Samsung</a>
-    </li>
-  </ul>
-</div>
-<div class="clear"> </div>
-
-<div class="clear"> </div>
-<div class="wrap">
-  <div class="copy-right">
-    <p style="color: white">&copy; Mobile e-Commerce 2018</a>
-    </p>
+    {{/each}}
+  </div>
+  <div class="col-md-2">
+    <h2> Categories</h2>
+    <ul>
+      <li>
+        <a href="/allmobiles/2">Apple</a>
+      </li>
+      <li>
+        <a href="/allmobiles/3">HTC</a>
+      </li>
+      <li>
+        <a href="/allmobiles/4">LG</a>
+      </li>
+      <li>
+        <a href="/allmobiles/1">Samsung</a>
+      </li>
+    </ul>
   </div>
 </div>

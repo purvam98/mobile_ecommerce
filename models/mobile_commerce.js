@@ -12,6 +12,12 @@ let mobile = {
       cb(res);
     });
   },
+  userlookup: function(val, cb) {
+    return new Promise((resolve, reject) => { orm.userlookup(val, (res) => {
+      resolve(res);
+    });
+  });
+  },
   // The variables cols and vals are arrays.
   create: function(tables, cols, vals, cb) {
     orm.create(tables, cols, vals, function(res) {
