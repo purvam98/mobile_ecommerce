@@ -48,10 +48,12 @@ router.post('/login', function (req, res, next) {
 
   const errors = req.validationErrors();
   if (errors) {
-    res.redirect('/login', { status: 'Username or password is incorrect' });
+    console.log(errors)
+    res.redirect('/login');
   } else {
     let lookup = mobile.userlookup(req.body.user_email, function (data) {
     }).then((data) => {
+      console.log(data)
       if (data[0]) {
         bcrypt.compare(req.body.password, data[0].password, function (err, valid) {
           if (valid && !err) {
@@ -68,11 +70,13 @@ router.post('/login', function (req, res, next) {
             })
             res.redirect('/');
           } else {
-            res.render('login', { status: 'Username or password is incorrect' });
+            console.log('here2')
+            res.redirect('login');
           }
         })
       } else {
-        res.render('login', { status: 'Username or password is incorrect' })
+        console.log('here')
+        res.redirect('login', { status: 'Username or password is incorrect' })
       }
     }).catch(next);
   }
