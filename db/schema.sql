@@ -43,7 +43,7 @@ CREATE TABLE order_details
 	order_timestamp TIMESTAMP NOT NULL,
 	delivery_timestamp TIMESTAMP,
 	payment_type varchar(255),
-	userID int
+	userID int,
 	FOREIGN KEY (userID) REFERENCES users(UserID),
 	PRIMARY KEY (orderID)
 );

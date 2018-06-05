@@ -74,6 +74,29 @@ let orm = {
       
       cb(result);
     });    
+  },
+  comparetwophone:function(tableInput,colToSearch,condition1,condition2,cb)
+  {
+    console.log(condition1,condition2);
+    console.log(`SELECT * FROM ${tableInput} WHERE ${colToSearch} IN ${(condition1,condition2)}`);
+    var queryString="SELECT * FROM "+ tableInput + " WHERE " + colToSearch +" IN " +"(" + condition1 + ","+condition2+")";
+    console.log(queryString);
+    connection.query(queryString,function(err,result){
+      if(err) throw err;
+      cb(result);
+    });
+  },
+  searchphone:function(tableInput,colToSearch1,colToSearch2,colToSearch3,colToSearch4,colToSearch5,condition,cb)
+  {
+    console.log(condition);
+    //"SELECT * FROM products where UPPER(concat(productCode,productName,productVendor)) LIKE '%".strtoupper($a)."%'"; 
+    var queryString="SELECT * FROM "+ tableInput + " WHERE concat(" +colToSearch1+","+colToSearch2+","+colToSearch3+","+colToSearch4+","+colToSearch5+") LIKE " +"'%"+condition+"%'";  
+    console.log(queryString);
+    connection.query(queryString,function(err,result){
+      if(err) throw err;
+      cb(result);
+    });
+
   }
   // create: function(table, cols, vals, cb) {
   //    let queryString = "INSERT INTO " + table;

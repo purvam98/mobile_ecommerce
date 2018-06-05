@@ -28,7 +28,21 @@ let mobile = {
   {
     cb(res)
   }); 
-  },  
+  },
+  comparetwophone: function(colToSearch,condition1,condition2,cb)
+  {
+    orm.comparetwophone("product_details",colToSearch,condition1,condition2,function(res)
+    {
+      cb(res);
+    });
+  },
+  searchphone: function(colToSearch1,colToSearch2,colToSearch3,colToSearch4,colToSearch5,condition,cb)
+  {
+    orm.searchphone("product_details",colToSearch1,colToSearch2,colToSearch3,colToSearch4,colToSearch5,condition,function(res)
+  {
+    cb(res);
+  });
+  }
   
 
   // The variables cols and vals are arrays.
