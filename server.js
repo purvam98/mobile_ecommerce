@@ -32,7 +32,7 @@ app.use((err, req, res, next) => {
   }
 });
 
-app.use(routes);
+app.use('/',routes);
 
 app.listen(PORT, function() {
   console.log("Server listening on: http://localhost:" + PORT);
