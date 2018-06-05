@@ -1,5 +1,5 @@
 
-const connection = require("../config/connection.js");
+const connection = require("./connection.js");
 
 function printQuestionMarks(num) {
   let arr = new Array(num);
