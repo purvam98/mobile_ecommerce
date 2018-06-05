@@ -10,13 +10,13 @@
     <div class="header-top-nav">
       <ul>
         <li>
-          <a href="/register">Register</a>
+          <a href="public/register.html">Register</a>
         </li>
         <li>
-          <a href="/login">Login</a>
+          <a href="public/register.html">Login</a>
         </li>
         <li>
-          <a href="/orders">My account</a>
+          <a href="public/register.html">My account</a>
         </li>
         <!-- <li><a href="#"><span>shopping cart&nbsp;&nbsp;: </span></a><label> &nbsp;noitems</label></li> -->
       </ul>
@@ -44,25 +44,6 @@
     <div class="clear"> </div>
   </div>
 </div>
-<div class="wrap">
-  <div class="image-slider">
-    <!-- Slideshow 1 -->
-    <ul class="rslides" id="slider1">
-      <li>
-        <img src="/assets/img/banner.jpg" alt="S9">
-      </li>
-      <li>
-        <img src="/assets/img/iphonebanner.png" alt="iPhoneX">
-      </li>
-      <li>
-        <img src="/assets/img/iphone8banner.jpg" alt="iphone8">
-      </li>
-    </ul>
-    <!-- Slideshow 2 -->
-  </div>
-  <!--End-image-slider-->
-</div>
-<div class="clear"> </div>
 <h1 align="center">
   <span class="label label-primary" style="background-color: #94CB32">Products</span>
 </h1>
@@ -102,17 +83,14 @@
     </br>
     {{#each mobiles}}
     <div class="col-md-4">
-      
-      <a href="/mobile/product/{{this.productID}}">
-      <h3>{{this.product_name}}</h3>
       <img align="center" src="/assets/img/{{this.product_image}}.jpg" height="200" width="200">
-      <h3>${{this.product_price}}</h3></a>
+      <h3>${{this.product_price}}</h3>
       <br>
     </div>
     {{/each}}
   </div>
   <div class="col-md-2">
-    <h2> Categories</h2>
+    <h4> <a href="general.handlebars">Categories</a></h4>
     <ul>
       <li>
         <a href="/allmobiles/2">Apple</a>
@@ -124,7 +102,7 @@
         <a href="/allmobiles/4">LG</a>
       </li>
       <li>
-        <a href="/allmobiles/1">Samsung</a>
+        <a href="/allmobiles/1" >Samsung</a>
       </li>
     </ul>
   </div>

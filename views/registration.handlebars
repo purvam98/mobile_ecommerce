@@ -1,8 +1,54 @@
-<h1 style="text-align: center;">Hot Juicy Burgs!</h1>
+<div class="wrap">
+ <div class="header">
+   <div class="search-bar">
+     <!-- <form action="need to be filled for the route" method="GET"> -->
+     <input type="text">
+     <input type="submit" value="Search" style="color:white" />
+     </form>
+   </div>
+   <div class="clear"> </div>
+   <div class="header-top-nav">
+     <ul>
+       <li>
+         <a href="public/register.html">Register</a>
+       </li>
+       <li>
+         <a href="public/register.html">Login</a>
+       </li>
+       <li>
+         <a href="public/register.html">My account</a>
+       </li>
+       <!-- <li><a href="#"><span>shopping cart&nbsp;&nbsp;: </span></a><label> &nbsp;noitems</label></li> -->
+     </ul>
+   </div>
+   <div class="clear"> </div>
+ </div>
+</div>
+<div class="clear"> </div>
+<div class="top-header">
+ <div class="wrap">
+
+   <div class="top-nav">
+     <ul>
+       <li>
+         <a href="public/index.html">Home</a>
+       </li>
+       <li>
+         <a href="public/contact.html">Contact</a>
+       </li>
+     </ul>
+   </div>
+   <div class="clear"> </div>
+ </div>
+</div>
+<h1 style="text-align: center;">Register</h1>
+
+
+
+{{!-- <h1 style="text-align: center;">Register User</h1> --}}
 <div>
     <div class="row">
         <div class="panel col-lg-5">
-            <h6>Burgs Not Eaten</h6>
             <form action="/mobile/users" method="POST">
                 <div class="form-group">
                     <label for="name">username:</label>
@@ -22,8 +68,14 @@
                     <label for="zip">zipcode:</label>
                     <input type="text" id="zip" name="user_zipcode">
                 </div>
-                <button type="submit">Add Burg</button>
+                <button type="submit">Add User</button>
             </form>
         </div>
     </div>
 </div>
+
+
+<footer class="page-footer font-small blue pt-4 mt-4">
+ <div class="footer-copyright text-center py-3">© 2018 Copyright: Mobile e-Commerce
+ </div>
+</footer>

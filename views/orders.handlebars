@@ -1,0 +1,79 @@
+<div class="wrap">
+    <div class="header">
+        <div class="search-bar">
+            <!-- <form action="need to be filled for the route" method="GET"> -->
+            <input type="text">
+            <input type="submit" value="Search" style="color:white" />
+            </form>
+        </div>
+        <div class="clear"> </div>
+        <div class="header-top-nav">
+            <ul>
+                <li>
+                    <a href="public/register.html">Register</a>
+                </li>
+                <li>
+                    <a href="public/register.html">Login</a>
+                </li>
+                <li>
+                    <a href="public/register.html">My account</a>
+                </li>
+                <!-- <li><a href="#"><span>shopping cart&nbsp;&nbsp;: </span></a><label> &nbsp;noitems</label></li> -->
+            </ul>
+        </div>
+        <div class="clear"> </div>
+    </div>
+</div>
+<div class="clear"> </div>
+<div class="top-header">
+    <div class="wrap">
+        <div class="top-nav">
+            <ul>
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                <!-- <li><a href="about.html">About</a></li> -->
+                <!-- <li><a href="store.html">Store</a></li> -->
+                <!-- <li><a href="store.html">Featured</a></li> -->
+                <!-- <li><a href="blog.html">Blog</a></li> -->
+                <li>
+                    <a href="public/contact.html">Contact</a>
+                </li>
+            </ul>
+        </div>
+        <div class="clear"> </div>
+    </div>
+</div>
+<h1 align="center">
+    <span class="label label-primary" style="background-color:#20052bc7">Product Details</span>
+</h1>
+{{#each orders}}
+{{this.productID}}<br>
+{{this.product_name}}<br>
+{{this.orderID}}<br>
+{{this.order_timestamp}}<br>
+{{this.product_price}}<br>
+    {{/each}}
+    </div>
+    <div class="col-md-2">
+        <h4>
+            <b>Categories</b>
+        </h4>
+        <b>
+            <ul>
+                <li>
+                    <a href="/allmobiles/2">Apple</a>
+                </li>
+                <li>
+                    <a href="/allmobiles/3">HTC</a>
+                </li>
+                <li>
+                    <a href="/allmobiles/4">LG</a>
+                </li>
+                <li>
+                    <a href="/allmobiles/1">Samsung</a>
+                </li>
+            </ul>
+        </b>
+    </div>
+</div>

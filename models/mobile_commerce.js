@@ -7,6 +7,11 @@ let mobile = {
       cb(res);
     });
   },
+  joinOrders: function(condition, cb) {
+    orm.joinOrders(condition, function(res) {
+      cb(res);
+    });
+  },
   one: function(table, condition, cb) {
     orm.one(table, condition, function(res) {
       cb(res);
@@ -21,6 +26,11 @@ let mobile = {
   // The variables cols and vals are arrays.
   create: function(tables, cols, vals, cb) {
     orm.create(tables, cols, vals, function(res) {
+      cb(res);
+    });
+  },
+  check: function(tables, cols, vals, cb) {
+    orm.check(tables, cols, vals, function(res) {
       cb(res);
     });
   },
