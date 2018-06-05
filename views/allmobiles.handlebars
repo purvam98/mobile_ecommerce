@@ -1,8 +1,8 @@
 <div class="wrap">
   <div class="header">
     <div class="search-bar">
-      <!-- <form action="need to be filled for the route" method="GET"> -->
-      <input type="text">
+      <form action="/search" method="POST">
+      <input type="text" name="search_field">
       <input type="submit" value="Search" style="color:white" />
       </form>
     </div>
@@ -83,8 +83,14 @@
     </br>
     {{#each mobiles}}
     <div class="col-md-4">
-      <img align="center" src="/assets/img/{{this.product_image}}.jpg" height="200" width="200">
-      <h3>${{this.product_price}}</h3>
+
+      <a href="/mobile/product/{{this.productID}}">
+        <h3>{{this.product_name}}</h3>
+        <img align="center" src="/assets/img/{{this.product_image}}.jpg" height="200" width="200">
+        <h3>${{this.product_price}}</h3>
+      </a>
+      <input type="checkbox" id="checkbox" name="checkbox" value="{{this.productID}}">
+      <b>Add To Compare</b>
       <br>
     </div>
     {{/each}}
@@ -107,3 +113,5 @@
     </ul>
   </div>
 </div>
+
+

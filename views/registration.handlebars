@@ -1,91 +1,83 @@
 <div class="wrap">
- <div class="header">
-   <div class="search-bar">
-     <!-- <form action="need to be filled for the route" method="GET"> -->
-     <input type="text">
-     <input type="submit" value="Search" style="color:white" />
-     </form>
-   </div>
-   <div class="clear"> </div>
-   <div class="header-top-nav">
-        <ul>
+  <div class="header">
+    <div class="search-bar">
+      <input type="text">
+      <input type="submit" value="Search" style="color:white" />
+      </form>
+    </div>
+    <div class="clear"> </div>
+    <div class="header-top-nav">
+      <ul>
+        <li>
+          <a href="/">Home</a>
           <li>
-            <a href="/">Home</a>
-            <li>
-              <a href="/register">Register</a>
-            </li>
-            <li>
-              <a href='/{{logining}}'>{{logining}}</a>
-            </li>
-            <li>
-              <a href="/auth/orders">My Orders</a>
-            </li>
+            <a href="/register">Register</a>
           </li>
-        </ul>
-   </div>
-   <div class="clear"> </div>
- </div>
+          <li>
+            <a href='/{{logining}}'>{{logining}}</a>
+          </li>
+          <li>
+            <a href="/auth/orders">My Orders</a>
+          </li>
+        </li>
+      </ul>
+    </div>
+    <div class="clear"> </div>
+  </div>
 </div>
 <div class="clear"> </div>
 <div class="top-header">
- <div class="wrap">
+  <div class="wrap">
 
-   <div class="top-nav">
-     <ul>
-       <li>
-         <a href="public/index.html">Home</a>
-       </li>
-       <li>
-         <a href="public/contact.html">Contact</a>
-       </li>
-     </ul>
-   </div>
-   <div class="clear"> </div>
- </div>
+    <div class="top-nav">
+      <ul>
+        <li>
+          <a href="/">Home</a>
+        </li>
+      </ul>
+    </div>
+    <div class="clear"> </div>
+  </div>
 </div>
 <h1 style="text-align: center;">Register</h1>
-
-
-
-<h1 style="text-align: center;">Register</h1>
-{{!-- <h1 style="text-align: center;">Register User</h1> --}}
 <div>
-   <div class="row ">
-       <div class="panel col-lg-5">
-           <form action="/mobile/users" method="POST">
-               <div class="form-group">
-                   <label for="name">username:</label>
-                   <input type="text" id="name" name="username" class="form-control" placeholder="Username">
-                   <br>
-                   <label for="first">first Name:</label>
-                   <input type="text" id="first" name="first_name" class="form-control" placeholder="Firstname">
-                   <br>
-                   <label for="secret">password:</label>
-                   <input type="text" id="secret" name="password" class="form-control" placeholder="Password">
-                   <br>
-                   <label for="last">last Name:</label>
-                   <input type="text" id="last" name="last_name" class="form-control" placeholder="Lastname">
-                   <br>
-                   <label for="email">email:</label>
-                   <input type="text" id="email" name="user_email" class="form-control" placeholder="Email">
-                   <br>
-                   <label for="phone">phone:</label>
-                   <input type="text" id="phone" name="user_phone" class="form-control" placeholder="Phone">
-                   <br>
-                   <label for="address">address:</label>
-                   <input type="text" id="address" name="user_address" class="form-control" placeholder="Address">
-                   <br>
-                   <label for="zip">zipcode:</label>
-                   <input type="text" id="zip" name="user_zipcode" class="form-control" placeholder="Zipcode">
-               </div>
-               <button type="submit btn btn-default">Add User</button>
-           </form>
-       </div>
-   </div>
+  <div class="row">
+    <div class=" col-lg-2"></div>
+    <div class="panel col-lg-6">
+      <form action="/mobile/users" method="POST" style="margin-left:50%">
+        <div class="form-group">
+          <label for="name">username:</label>
+          <input type="text" id="name" name="username" class="form-control" placeholder="Username">
+          <br>
+          <label for="first">first Name:</label>
+          <input type="text" id="first" name="first_name" class="form-control" placeholder="Firstname">
+          <br>
+          <label for="secret">password:</label>
+          <input type="text" id="secret" name="password" class="form-control" placeholder="Password">
+          <br>
+          <label for="last">last Name:</label>
+          <input type="text" id="last" name="last_name" class="form-control" placeholder="Lastname">
+          <br>
+          <label for="email">email:</label>
+          <input type="text" id="email" name="user_email" class="form-control" placeholder="Email">
+          <br>
+          <label for="phone">phone:</label>
+          <input type="text" id="phone" name="user_phone" class="form-control" placeholder="Phone">
+          <br>
+          <label for="address">address:</label>
+          <input type="text" id="address" name="user_address" class="form-control" placeholder="Address">
+          <br>
+          <label for="zip">zipcode:</label>
+          <input type="text" id="zip" name="user_zipcode" class="form-control" placeholder="Zipcode">
+        </div>
+        <button type="submit btn btn-default">Add User</button>
+      </form>
+    </div>
+  </div>
 </div>
 
 
 <footer class="page-footer font-small blue pt-4 mt-4">
- <div class="footer-copyright text-center py-3">© 2018 Copyright: Mobile e-Commerce
- </div>
+  <div class="footer-copyright text-center py-3">© 2018 Copyright: Mobile e-Commerce
+  </div>
 </footer>

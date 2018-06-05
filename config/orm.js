@@ -42,7 +42,17 @@ let orm = {
       cb(result);
     });
   },
+  selectWhere: function (tableInput, colToSearch, condition, cb) {
+    var queryString = "SELECT * FROM ?? WHERE ?? = ?";
 
+    console.log('Query: ', `SELECT * FROM ${tableInput} WHERE ${colToSearch} = ${condition}`);
+
+    connection.query(queryString, [tableInput, colToSearch, condition], function (err, result) {
+      if (err) throw err;
+      console.log(tableInput, colToSearch, condition);
+      cb(result);
+    });
+  },
   joinOrders: function (condition, cb) {
     let queryString = "SELECT orders.orderID , orders.userID , orders.order_timestamp , product_details.product_price , product_details.productID , product_details.product_name FROM orders LEFT JOIN product_details ON orders.productID = product_details.productID AND orders.userID = " + condition
     connection.query(queryString, function (err, result) {
@@ -105,7 +115,41 @@ let orm = {
       }
       cb(result);
     });
+  },
+  selectallWhere:function(tableInput,colToSearch1,colToSearch2,colToSearch3,condition1,condition2,condition3,cb)
+  {
+    console.log('Query: ', `SELECT * FROM ${tableInput} WHERE ${colToSearch1} = ${condition1} AND ${colToSearch2} <= ${condition2} AND ${colToSearch3} <= ${condition3}`);
+    var queryString = "SELECT * FROM ?? WHERE ?? = ? AND ?? <= ? AND ?? <= ?";
+    connection.query(queryString, [tableInput,colToSearch1,condition1,colToSearch2,condition2,colToSearch3,condition3], function(err, result) {
+      if (err) throw err;
+      
+      cb(result);
+    });    
+  },
+  comparetwophone:function(tableInput,colToSearch,condition1,condition2,cb)
+  {
+    console.log(condition1,condition2);
+    console.log(`SELECT * FROM ${tableInput} WHERE ${colToSearch} IN ${(condition1,condition2)}`);
+    var queryString="SELECT * FROM "+ tableInput + " WHERE " + colToSearch +" IN " +"(" + condition1 + ","+condition2+")";
+    console.log(queryString);
+    connection.query(queryString,function(err,result){
+      if(err) throw err;
+      cb(result);
+    });
+  },
+  searchphone:function(tableInput,colToSearch1,colToSearch2,colToSearch3,colToSearch4,colToSearch5,condition,cb)
+  {
+    console.log(condition);
+    //"SELECT * FROM products where UPPER(concat(productCode,productName,productVendor)) LIKE '%".strtoupper($a)."%'"; 
+    var queryString="SELECT * FROM "+ tableInput + " WHERE concat(" +colToSearch1+","+colToSearch2+","+colToSearch3+","+colToSearch4+","+colToSearch5+") LIKE " +"'%"+condition+"%'";  
+    console.log(queryString);
+    connection.query(queryString,function(err,result){
+      if(err) throw err;
+      cb(result);
+    });
+
   }
 }
+
 
 module.exports = orm;

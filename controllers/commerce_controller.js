@@ -5,6 +5,8 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const moment = require('moment');
 const agentMan = require('../config/config.js');
+var first_phone;
+var second_phone;
 
 function decodeJwt(cookieSrting) {
   let token = cookieSrting.slice(17).split('.', 3).join('.')
@@ -16,14 +18,14 @@ router.get("/", function (req, res) {
   res.redirect('/mobile');
 });
 
-let logging = (cooks) => { return (cooks && decodeJwt(cooks)) ? "Logout" : "Login"};
+let logging = (cooks) => { return (cooks && decodeJwt(cooks)) ? "Logout" : "Login" };
 
 router.get('/mobile', function (req, res) {
   mobile.all("product_details", function (data) {
-    let hbsObject = { 
+    let hbsObject = {
       mobiles: data,
       logining: logging(req.headers.cookie)
-     };
+    };
     res.render('index', hbsObject);
   });
 });
@@ -38,7 +40,7 @@ router.get('/logout', (req, res) => {
 });
 
 router.get('/login', function (req, res) {
-    res.render('login');
+  res.render('login');
 });
 
 router.post('/login', function (req, res, next) {
@@ -152,7 +154,6 @@ router.get('/auth/orders/:id', function (req, res, next) {
   }
 })
 
-
 router.get('/auth/orders', function (req, res) {
   let token_info = decodeJwt(req.headers.cookie);
   res.redirect('/auth/orders/' + token_info.userId);
@@ -166,4 +167,62 @@ router.post("/auth/checkout/:id", function (req, res) {
   res.redirect('/auth/orders/' + token_info.userId)
 });
 
+router.post('/compare', function (req, res) {
+  first_phone = req.body.mobile1;
+  second_phone = req.body.mobile2;
+  mobile.comparetwophone("productID", first_phone, second_phone, function (data) {
+    var hbsObject = {
+      mobiles: data
+    };
+
+    res.render("compare", hbsObject);
+  });
+});
+
+router.get('/comparejoie', function (req, res) {
+
+  mobile.comparetwophone("productID", first_phone, second_phone, function (data) {
+    data[0].product_specs = data[0].product_specs.split(":");
+    data[1].product_specs = data[1].product_specs.split(":");
+    var hbsObject = {
+      mobiles: data
+    };
+
+    res.render("compare", hbsObject);
+  });
+});
+
+router.get("/allmobiles/:id", function (req, res) {
+  var condition = req.params.id;
+  mobile.selectwhere("categoryID", condition, function (data) {
+    console.log(data, "here");
+    var hbsObject = {
+      mobiles: data
+    };
+    res.render("allmobiles", hbsObject);
+  });
+});
+
+router.post('/search', function (req, res) {
+  var search_field = req.body.search_field;
+  console.log(search_field);
+  mobile.searchphone("product_name", "product_price", "product_memory", "product_specs", "category_name", search_field, function (data) {
+    var hbsObject = {
+      mobiles: data
+    };
+    res.render("searchphone", hbsObject);
+  });
+});
+
+router.post('/criteria', function (req, res) {
+  var category = req.body.category;
+  var price_range = req.body.price_range;
+  var memory = req.body.memory;
+  mobile.selectallwhere("categoryID", "product_price", "product_memory", category, price_range, memory, function (data) {
+    var hbsObject = {
+      mobiles: data
+    };
+    res.render("criteria_search", hbsObject);
+  });
+});
 module.exports = router;

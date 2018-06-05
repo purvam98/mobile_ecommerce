@@ -25,12 +25,20 @@ img{max-width:100%;}
 body{
 	background:#F9F9F9;
 }
+.border
+{
+	border: 1px solid grey;
+}
 .wrap{
 	width:80%;
 	margin:0 auto;
 }
 .search-bar,.header-top-nav{
 	float:right;
+}
+.uppercase
+{
+	text-transform: uppercase;
 }
 .search-bar input[type="text"]{
 	width: 182px;

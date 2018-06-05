@@ -23,7 +23,6 @@ let mobile = {
     });
   });
   },
-  // The variables cols and vals are arrays.
   create: function(tables, cols, vals, cb) {
     orm.create(tables, cols, vals, function(res) {
       cb(res);
@@ -38,8 +37,27 @@ let mobile = {
     orm.update(table, objColVals, condition, function(res) {
       cb(res);
     });
+  },
+  selectwhere: function(colToSearch, condition,cb) {
+   orm.selectWhere("product_details",colToSearch,condition,function(res) {
+    cb(res)
+  }); 
+  },
+  selectallwhere: function(colToSearch1,colToSearch2,colToSearch3,condition1,condition2,condition3,cb) {
+   orm.selectallWhere("product_details",colToSearch1,colToSearch2,colToSearch3,condition1,condition2,condition3,function(res) {
+    cb(res)
+  }); 
+  },
+  comparetwophone: function(colToSearch,condition1,condition2,cb) {
+    orm.comparetwophone("product_details",colToSearch,condition1,condition2,function(res) {
+      cb(res);
+    });
+  },
+  searchphone: function(colToSearch1,colToSearch2,colToSearch3,colToSearch4,colToSearch5,condition,cb) {
+    orm.searchphone("product_details",colToSearch1,colToSearch2,colToSearch3,colToSearch4,colToSearch5,condition,function(res) {
+    cb(res);
+  });
   }
 };
 
-// Export the database functions for the controller (catsController.js).
 module.exports = mobile;

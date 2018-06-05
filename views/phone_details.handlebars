@@ -1,0 +1,184 @@
+<div class="wrap">
+    <div class="header">
+    <div class="search-bar">
+      <form action="/search" method="POST">
+      <input type="text" name="search_field">
+      <input type="submit" value="Search" style="color:white" />
+      </form>
+    </div>
+        <div class="clear"> </div>
+        <div class="header-top-nav">
+            <ul>
+                <li>
+                    <a href="public/register.html">Register</a>
+                </li>
+                <li>
+                    <a href="public/register.html">Login</a>
+                </li>
+                <li>
+                    <a href="public/register.html">My account</a>
+                </li>
+                <!-- <li><a href="#"><span>shopping cart&nbsp;&nbsp;: </span></a><label> &nbsp;noitems</label></li> -->
+            </ul>
+        </div>
+        <div class="clear"> </div>
+    </div>
+</div>
+<div class="clear"> </div>
+<div class="top-header">
+    <div class="wrap">
+        <div class="top-nav">
+            <ul>
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                <!-- <li><a href="about.html">About</a></li> -->
+                <!-- <li><a href="store.html">Store</a></li> -->
+                <!-- <li><a href="store.html">Featured</a></li> -->
+                <!-- <li><a href="blog.html">Blog</a></li> -->
+                <li>
+                    <a href="public/contact.html">Contact</a>
+                </li>
+            </ul>
+        </div>
+        <div class="clear"> </div>
+    </div>
+</div>
+<h1 align="center">
+    <span class="label label-primary" style="background-color:#20052bc7">Product Details</span>
+</h1>
+{{#each mobiles}}
+<div class="row">
+  <div class="col-md-2">
+    <form action="/criteria" method="POST">
+    <div class="col-md-12">
+      <h2>Search By Criteria</h2>
+    </div>
+    <div class="col-md-12">
+      <b>Category:</b>
+      <ul>
+      <li><input type="radio" name="category" value="1">&nbsp;&nbsp;Samsung</li>
+      <li><input type="radio" name="category" value="3">&nbsp;&nbsp;Htc</li>
+      <li><input type="radio" name="category" value="4">&nbsp;&nbsp;Lg</li>
+      <li><input type="radio" name="category" value="2">&nbsp;&nbsp;Apple</li>
+      </ul>
+    </div>
+    <div class="col-md-12">
+      <b>Range From $300 to $1500</b>
+      <input type="range"name="price_range" min="300" max="1500">
+    </div>
+    <div class="col-md-12">
+     <b> Memory:</b>
+      <ul>
+     <li><input type="radio" name="memory" value="16">&nbsp;&nbsp;16GB</li>
+     <li><input type="radio" name="memory" value="32">&nbsp;&nbsp;32GB</li>
+     <li><input type="radio" name="memory" value="64">&nbsp;&nbsp;64GB</li>
+    </ul>
+    </div>
+    <div class="col-md-12">
+      <button class="btn btn-default btn-lg" style="background-color:#94CB32" type="submit"><font color="white"><b>Search Phones</b></font></button>
+    </div>
+    </form>
+  </div>
+    <div class="col-md-8">
+        </br>
+
+        <div class="col-md-4">
+            <img align="center" src="/assets/img/{{this.product_image}}.jpg" height="300" width="400">
+        </div>
+        <div class="col-md-8">
+            <div class="col-md-6">
+                <h3>
+                    <b>Model:-</b>
+                </h3>
+            </div>
+            <div class="col-md-6">
+                <h3 align="left">
+                    <b>
+                        <font color="#20052bc7">{{this.product_name}}</font>
+                    </b>
+                </h3>
+            </div>
+            <div class="col-md-6">
+                <h3>
+                    <b>Price:-</b>
+                </h3>
+            </div>
+            <div class="col-md-6">
+                <h3 align="left">
+                    <b>
+                        <font color="#20052bc7">${{this.product_price}}</font>
+                    </b>
+                </h3>
+            </div>
+            <div class="col-md-6">
+                <h3>
+                    <b>Memory:-</b>
+                </h3>
+            </div>
+            <div class="col-md-6">
+                <h3 align="left">
+                    <b>
+                        <font color="#20052bc7">{{this.product_memory}}GB</font>
+                    </b>
+                </h3>
+            </div>
+            <div class="col-md-6">
+                <h3>
+                    <b>Color:-</b>
+                </h3>
+            </div>
+            <div class="col-md-6">
+                <h3 align="left">
+                    <b>
+                        <font color="#20052bc7">{{this.product_color}}</font>
+                    </b>
+                </h3>
+            </div>
+            <div class="col-md-12">
+
+                <h3 align="left">
+                    <b>
+                        Product Specs:-
+                </h3>
+                <ul>{{#each this.product_specs}}
+                    <li>
+                        <font color="#20052bc7">{{this}} </font>
+                    </li>{{/each}}</ul>
+
+                </b>
+
+            </div>
+            <div class="col-md-12">
+                <h1>
+                    <span class="label label-primary" style="background-color:red">Buy Now</span>
+                </h1>
+            </div>
+
+
+
+        </div>
+        {{/each}}
+    </div>
+    <div class="col-md-2">
+        <h4>
+            <b>Categories</b>
+        </h4>
+        <b>
+            <ul>
+                <li>
+                    <a href="/allmobiles/2">Apple</a>
+                </li>
+                <li>
+                    <a href="/allmobiles/3">HTC</a>
+                </li>
+                <li>
+                    <a href="/allmobiles/4">LG</a>
+                </li>
+                <li>
+                    <a href="/allmobiles/1">Samsung</a>
+                </li>
+            </ul>
+        </b>
+    </div>
+</div>

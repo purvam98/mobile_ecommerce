@@ -1,0 +1,128 @@
+<div class="wrap">
+  <div class="header">
+    <div class="search-bar">
+      <form action="/search" method="POST">
+        <input type="text" name="search_field">
+        <input type="submit" value="Search" style="color:white" />
+      </form>
+    </div>
+    <div class="clear"> </div>
+    <div class="header-top-nav">
+      <ul>
+        <li>
+          <a href="public/register.html">Register</a>
+        </li>
+        <li>
+          <a href="public/register.html">Login</a>
+        </li>
+        <li>
+          <a href="public/register.html">My account</a>
+        </li>
+        <!-- <li><a href="#"><span>shopping cart&nbsp;&nbsp;: </span></a><label> &nbsp;noitems</label></li> -->
+      </ul>
+    </div>
+    <div class="clear"> </div>
+  </div>
+</div>
+<div class="clear"> </div>
+<div class="top-header">
+  <div class="wrap">
+    <div class="top-nav">
+      <ul>
+        <li>
+          <a href="/">Home</a>
+        </li>
+        <!-- <li><a href="about.html">About</a></li> -->
+        <!-- <li><a href="store.html">Store</a></li> -->
+        <!-- <li><a href="store.html">Featured</a></li> -->
+        <!-- <li><a href="blog.html">Blog</a></li> -->
+        <li>
+          <a href="public/contact.html">Contact</a>
+        </li>
+      </ul>
+    </div>
+    <div class="clear"> </div>
+  </div>
+</div>
+<h1 align="center">
+  <span class="label label-primary" style="background-color: #94CB32">Products</span>
+</h1>
+<div class="row">
+  <div class="col-md-2">
+    <form action="/criteria" method="POST">
+      <div class="col-md-12">
+        <h2>Search By Criteria</h2>
+      </div>
+      <div class="col-md-12">
+        <b>Category:</b>
+        <ul>
+          <li>
+            <input type="radio" name="category" value="1">&nbsp;&nbsp;Samsung</li>
+          <li>
+            <input type="radio" name="category" value="3">&nbsp;&nbsp;Htc</li>
+          <li>
+            <input type="radio" name="category" value="4">&nbsp;&nbsp;Lg</li>
+          <li>
+            <input type="radio" name="category" value="2">&nbsp;&nbsp;Apple</li>
+        </ul>
+      </div>
+      <div class="col-md-12">
+        <b>Range From $300 to $1500</b>
+        <input type="range" name="price_range" min="300" max="1500">
+      </div>
+      <div class="col-md-12">
+        <b> Memory:</b>
+        <ul>
+          <li>
+            <input type="radio" name="memory" value="16">&nbsp;&nbsp;16GB</li>
+          <li>
+            <input type="radio" name="memory" value="32">&nbsp;&nbsp;32GB</li>
+          <li>
+            <input type="radio" name="memory" value="64">&nbsp;&nbsp;64GB</li>
+        </ul>
+      </div>
+      <div class="col-md-12">
+        <button class="btn btn-default btn-lg" style="background-color:#94CB32" type="submit">
+          <font color="white">
+            <b>Search Phones</b>
+          </font>
+        </button>
+      </div>
+    </form>
+  </div>
+  <div class="col-md-8">
+    </br>
+    {{#each mobiles}}
+    <div class="col-md-4">
+
+      <a href="/mobile/product/{{this.productID}}">
+        <h3>{{this.product_name}}</h3>
+        <img align="center" src="/assets/img/{{this.product_image}}.jpg" height="200" width="200">
+        <h3>${{this.product_price}}</h3>
+      </a>
+      <input type="checkbox" id="checkbox" name="checkbox" value="{{this.productID}}">
+      <b>Add To Compare</b>
+      <br>
+    </div>
+    {{/each}}
+  </div>
+  <div class="col-md-2">
+    <h4>
+      <a href="general.handlebars">Categories</a>
+    </h4>
+    <ul>
+      <li>
+        <a href="/allmobiles/2">Apple</a>
+      </li>
+      <li>
+        <a href="/allmobiles/3">HTC</a>
+      </li>
+      <li>
+        <a href="/allmobiles/4">LG</a>
+      </li>
+      <li>
+        <a href="/allmobiles/1">Samsung</a>
+      </li>
+    </ul>
+  </div>
+</div>

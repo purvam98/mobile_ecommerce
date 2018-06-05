@@ -5,7 +5,7 @@ const jwtExp = require('express-jwt');
 const routes = require("./controllers/commerce_controller.js");
 const expressValidator =  require('express-validator') ;
 var cookieParser = require('cookie-parser')
-const PORT = 8080;
+const PORT = process.env.PORT || 8080;
 const agentMan = require('./config/config.js');
 
 let app = express();
