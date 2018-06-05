@@ -1,4 +1,4 @@
-// Import MySQL connection.
+
 const connection = require("../config/connection.js");
 
 function printQuestionMarks(num) {
@@ -34,7 +34,6 @@ let orm = {
   },
 
   one: function (tableInput, criteria, cb) {
-    console.log('orm')
     let queryString = "SELECT * FROM " + tableInput + " WHERE " + criteria + ";";
     connection.query(queryString, function (err, result) {
       if (err) {
@@ -45,7 +44,6 @@ let orm = {
   },
 
   joinOrders: function (condition, cb) {
-    console.log(condition)
     let queryString = "SELECT orders.orderID , orders.userID , orders.order_timestamp , product_details.product_price , product_details.productID , product_details.product_name FROM orders LEFT JOIN product_details ON orders.productID = product_details.productID AND orders.userID = " + condition
     connection.query(queryString, function (err, result) {
       if (err) {

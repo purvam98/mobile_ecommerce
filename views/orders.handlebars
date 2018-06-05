@@ -10,13 +10,13 @@
         <div class="header-top-nav">
             <ul>
                 <li>
-                    <a href="public/register.html">Register</a>
+                    <a href="/register">Register</a>
                 </li>
                 <li>
-                    <a href="public/register.html">Login</a>
+                    <a href="/logout">Logout</a>
                 </li>
                 <li>
-                    <a href="public/register.html">My account</a>
+                    <a href="/auth/orders">My Orders</a>
                 </li>
                 <!-- <li><a href="#"><span>shopping cart&nbsp;&nbsp;: </span></a><label> &nbsp;noitems</label></li> -->
             </ul>
@@ -36,44 +36,24 @@
                 <!-- <li><a href="store.html">Store</a></li> -->
                 <!-- <li><a href="store.html">Featured</a></li> -->
                 <!-- <li><a href="blog.html">Blog</a></li> -->
-                <li>
-                    <a href="public/contact.html">Contact</a>
-                </li>
             </ul>
         </div>
         <div class="clear"> </div>
     </div>
 </div>
 <h1 align="center">
-    <span class="label label-primary" style="background-color:#20052bc7">Product Details</span>
+    <span class="label label-primary" style="background-color:#20052bc7">Orders</span>
 </h1>
-{{#each orders}}
-{{this.productID}}<br>
-{{this.product_name}}<br>
-{{this.orderID}}<br>
-{{this.order_timestamp}}<br>
-{{this.product_price}}<br>
+<div>
+    {{#each orders}}
+    <div class="row" style="border-radius:20px;margin:20px">
+        <div class="container" style="padding:10px;border-radius:5px;background-color:#a7a7a7c7">
+            <div class="col-sm" style="font-weight:bold;margin-left:20px">Order ID - {{this.orderID}}</div>
+            <div class="col-sm" style="font-weight:bold;margin-left:20px">Product Name - {{this.product_name}}</div>
+            <div class="col-sm" style="font-weight:bold;margin-left:20px">Product ID - {{this.productID}} </div>
+            <div class="col-sm" style="font-weight:bold;margin-left:20px">Order Date - {{this.order_timestamp}}</div>
+            <div class="col-sm" style="font-weight:bold;margin-left:20px">Product Price - {{this.product_price}} </div>
+        </div>
+    </div>
     {{/each}}
-    </div>
-    <div class="col-md-2">
-        <h4>
-            <b>Categories</b>
-        </h4>
-        <b>
-            <ul>
-                <li>
-                    <a href="/allmobiles/2">Apple</a>
-                </li>
-                <li>
-                    <a href="/allmobiles/3">HTC</a>
-                </li>
-                <li>
-                    <a href="/allmobiles/4">LG</a>
-                </li>
-                <li>
-                    <a href="/allmobiles/1">Samsung</a>
-                </li>
-            </ul>
-        </b>
-    </div>
 </div>

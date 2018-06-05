@@ -16,9 +16,14 @@ router.get("/", function (req, res) {
   res.redirect('/mobile');
 });
 
+let logging = (cooks) => { return (cooks && decodeJwt(cooks)) ? "Logout" : "Login"};
+
 router.get('/mobile', function (req, res) {
   mobile.all("product_details", function (data) {
-    let hbsObject = { mobiles: data };
+    let hbsObject = { 
+      mobiles: data,
+      logining: logging(req.headers.cookie)
+     };
     res.render('index', hbsObject);
   });
 });
@@ -27,8 +32,13 @@ router.get('/register', function (req, res) {
   res.render('registration');
 });
 
+router.get('/logout', (req, res) => {
+  res.clearCookie("jwtAuthToken");
+  res.redirect('/mobile')
+});
+
 router.get('/login', function (req, res) {
-  res.render('login');
+    res.render('login');
 });
 
 router.post('/login', function (req, res, next) {
@@ -104,16 +114,16 @@ router.post("/mobile/users", function (req, res) {
             else {
               resolve(
                 mobile.create('users', [
-                "username", "first_name", "last_name", "password", "user_email", "user_phone", "user_address", "user_zipcode"
-              ], [
-                  req.body.username, req.body.first_name, req.body.last_name, hash, req.body.user_email, req.body.user_phone, req.body.user_address, req.body.user_zipcode
-                ], function (result) {
-                  if (result === 1062){
-                    res.redirect('/register')
-                  } else {
-                    res.redirect('/login')
-                  }
-                })
+                  "username", "first_name", "last_name", "password", "user_email", "user_phone", "user_address", "user_zipcode"
+                ], [
+                    req.body.username, req.body.first_name, req.body.last_name, hash, req.body.user_email, req.body.user_phone, req.body.user_address, req.body.user_zipcode
+                  ], function (result) {
+                    if (result === 1062) {
+                      res.redirect('/register')
+                    } else {
+                      res.redirect('/login')
+                    }
+                  })
               );
             }
           })
@@ -124,13 +134,6 @@ router.post("/mobile/users", function (req, res) {
     });
   }
 });
-
-function orders(productID, product_name, spMsg, attkMsg) {
-  this.id = id;
-  this.whatsYourNameBby = name;
-  this.specialMessage = spMsg;
-  this.attackMessage = attkMsg;
-}
 
 router.get('/auth/orders/:id', function (req, res, next) {
   const condition = "userID = " + req.params.id;

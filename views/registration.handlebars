@@ -45,33 +45,41 @@
 
 
 
+<h1 style="text-align: center;">Register</h1>
 {{!-- <h1 style="text-align: center;">Register User</h1> --}}
 <div>
-    <div class="row">
-        <div class="panel col-lg-5">
-            <form action="/mobile/users" method="POST">
-                <div class="form-group">
-                    <label for="name">username:</label>
-                    <input type="text" id="name" name="username">
-                    <label for="first">first Name:</label>
-                    <input type="text" id="first" name="first_name">
-                    <label for="secret">password:</label>
-                    <input type="text" id="secret" name="password">
-                    <label for="last">last Name:</label>
-                    <input type="text" id="last" name="last_name">
-                    <label for="email">email:</label>
-                    <input type="text" id="email" name="user_email">
-                    <label for="phone">phone:</label>
-                    <input type="text" id="phone" name="user_phone">
-                    <label for="address">address:</label>
-                    <input type="text" id="address" name="user_address">
-                    <label for="zip">zipcode:</label>
-                    <input type="text" id="zip" name="user_zipcode">
-                </div>
-                <button type="submit">Add User</button>
-            </form>
-        </div>
-    </div>
+   <div class="row ">
+       <div class="panel col-lg-5">
+           <form action="/mobile/users" method="POST">
+               <div class="form-group">
+                   <label for="name">username:</label>
+                   <input type="text" id="name" name="username" class="form-control" placeholder="Username">
+                   <br>
+                   <label for="first">first Name:</label>
+                   <input type="text" id="first" name="first_name" class="form-control" placeholder="Firstname">
+                   <br>
+                   <label for="secret">password:</label>
+                   <input type="text" id="secret" name="password" class="form-control" placeholder="Password">
+                   <br>
+                   <label for="last">last Name:</label>
+                   <input type="text" id="last" name="last_name" class="form-control" placeholder="Lastname">
+                   <br>
+                   <label for="email">email:</label>
+                   <input type="text" id="email" name="user_email" class="form-control" placeholder="Email">
+                   <br>
+                   <label for="phone">phone:</label>
+                   <input type="text" id="phone" name="user_phone" class="form-control" placeholder="Phone">
+                   <br>
+                   <label for="address">address:</label>
+                   <input type="text" id="address" name="user_address" class="form-control" placeholder="Address">
+                   <br>
+                   <label for="zip">zipcode:</label>
+                   <input type="text" id="zip" name="user_zipcode" class="form-control" placeholder="Zipcode">
+               </div>
+               <button type="submit btn btn-default">Add User</button>
+           </form>
+       </div>
+   </div>
 </div>
 
 
