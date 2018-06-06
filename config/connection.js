@@ -4,9 +4,9 @@ let connection;
 connection = mysql.createConnection({
   host: "nuskkyrsgmn5rw8c.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
   port: 3306,
-  user: "ocejmnq5b9s1z5l0",
-  password: "rav6er2taesykvm7",
-  database: "emkvh1nji9vooy3w"
+  user: "yz88pijz0j4st1r5",
+  password: "nhxqyoy9d2ffyaql",
+  database: "r7o3qzw952f78424"
 });
 
 

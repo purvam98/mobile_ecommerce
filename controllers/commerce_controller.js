@@ -120,9 +120,9 @@ router.post("/mobile/users", function (req, res) {
             else {
               resolve(
                 mobile.create('users', [
-                  "username", "first_name", "last_name", "password", "user_email", "user_phone", "user_address", "user_zipcode"
+                  "username", "first_name", "last_name", "password", "user_email", "user_phone", "user_address", "user_zipcode", "timestamp"
                 ], [
-                    req.body.username, req.body.first_name, req.body.last_name, hash, req.body.user_email, req.body.user_phone, req.body.user_address, req.body.user_zipcode
+                    req.body.username, req.body.first_name, req.body.last_name, hash, req.body.user_email, req.body.user_phone, req.body.user_address, req.body.user_zipcode, moment().format("YYYY-MM-DD HH:mm:ss")
                   ], function (result) {
                     if (result === 1062) {
                       res.redirect('/register')
