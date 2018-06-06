@@ -35,5 +35,5 @@ app.use((err, req, res, next) => {
 app.use('/',routes);
 
 app.listen(PORT, function() {
-  console.log("Server listening on: http://localhost:" + PORT);
+  console.log("Server listening on: nuskkyrsgmn5rw8c.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:" + PORT);
 });

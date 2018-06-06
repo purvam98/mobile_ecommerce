@@ -6,7 +6,9 @@ connection = mysql.createConnection({
   port: 3306,
   user: "yz88pijz0j4st1r5",
   password: "nhxqyoy9d2ffyaql",
-  database: "r7o3qzw952f78424"
+  database: "r7o3qzw952f78424",
+  max: 10,
+idleTimeoutMillis: 30000,
 });
 
 
