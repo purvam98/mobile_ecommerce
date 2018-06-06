@@ -1,16 +1,14 @@
 let mysql = require("mysql");
 let connection;
-if (process.env.CLEARDB_DATABASE_URL) {
-  connection = mysql.createConnection(process.env.CLEARDB_DATABASE_URL)
-} else {
+
 connection = mysql.createConnection({
-  host: "localhost",
+  host: "nuskkyrsgmn5rw8c.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
   port: 3306,
-  user: "root",
-  password: "HamburglarMcNasty92",
-  database: "commerce_db"
+  user: "ocejmnq5b9s1z5l0",
+  password: "rav6er2taesykvm7",
+  database: "emkvh1nji9vooy3w"
 });
-}
+
 
 connection.connect(function(err) {
   if (err) {
@@ -19,5 +17,5 @@ connection.connect(function(err) {
   }
   console.log("connected as id " + connection.threadId);
 });
-
+//mysql://bee747c0cbee0e:34570445@us-cdbr-iron-east-04.cleardb.net/heroku_825b14b8ea9a46b?reconnect=true
 module.exports = connection;
